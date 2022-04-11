@@ -63,7 +63,7 @@ searcher.workers = 100
 searcher.batches = 50
 ```
 
-If infura is used then some times the max query size will be reached (10k records).
+If infura is used then some times the max query size error will be triggered (10k records).
 In that scenario the module will divide the batch that caused the error into smaller
 batches and try again. This process will continue recursively until batch size is 
 small enough so infura actually returns a valid result. This may be a source of 
