@@ -60,10 +60,12 @@ class GenericERC20(ContractModel):
     def abi(self) -> str:
         if self._abi is not None:
             return self._abi
-        abi_path = Path(getcwd())/"chainsearch"/"abis"/"erc20abi.json"
+        abi_path = Path(__file__).parent.resolve()/"abis"/"erc20abi.json"
         if not abi_path.exists():
-            raise NoAbiTemplateError(self.__name__)
-        return open(abi_path, "r").read()
+            raise NoAbiTemplateError(str(abi_path))
+        with open(abi_path, "r") as f:
+            abi = f.read()
+        return abi
 
     @property
     def evm(self) -> None:

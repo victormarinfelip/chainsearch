@@ -25,7 +25,7 @@ class Search(object):
         self._current_block_last_updated = datetime.now() - timedelta(hours=10)
 
         # Let's do some validation
-        errmsg = "address and abi, or address and contract_model, or" \
+        errmsg = "address and abi, or address and contract_model, or " \
                  "contract model with address must be passed."
         if contract_model is None:
             if address is None or abi is None:
